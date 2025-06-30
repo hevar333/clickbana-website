@@ -42,13 +42,13 @@ const LanguageSelector = (() => {
   function setCurrentLanguage() {
     const path = window.location.pathname.toLowerCase();
 
-    if (path.includes('/english1.html')) {
+    if (path.includes('./english1.html')) {
       currentLangSpan.textContent = 'English';
-    } else if (path.includes('/sorani1.html')) {
+    } else if (path.includes('./sorani1.html')) {
       currentLangSpan.textContent = 'Kurdish (Sorani)';
-    } else if (path.includes('/kurdishku.html')) {
+    } else if (path.includes('./kurdishku.html')) {
       currentLangSpan.textContent = 'Kurdish (Kurmanji)';
-    } else if (path.includes('/arabic1.html')) {
+    } else if (path.includes('./arabic1.html')) {
       currentLangSpan.textContent = 'Arabic';
     } else {
       currentLangSpan.textContent = 'Select Language';
@@ -121,16 +121,16 @@ const LanguageSelector = (() => {
 
     switch(language) {
       case 'english':
-        pagePath = '/english1.html';
+        pagePath = './english1.html';
         break;
       case 'sorani':
-        pagePath = '/sorani1.html';
+        pagePath = './sorani1.html';
         break;
       case 'kurmanji':
-        pagePath = '/kurdishku.html';
+        pagePath = './kurdishku.html';
         break;
       case 'arabic':
-        pagePath = '/arabic1.html';
+        pagePath = './arabic1.html';
         break;
       default:
         console.log('Unknown language:', language);
