@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>محرر النصوص العربي مع لوحة مفاتيح افتراضية</title>
+  <meta name="description" content="برنامج تحرير نصوص باللغة العربية مع أدوات تنسيق ولوحة مفاتيح افتراضية">
+  <meta name="keywords" content="محرر نصوص عربي, لوحة مفاتيح عربية, محرر نصوص أونلاين">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="stylertl.css">
+</head>
+<body>
+  <div class="container">
+    <div class="top-bar">
+      <div class="nav-container">
+        <div class="nav-item"><a href="donipage.html" target="_blank"
+         > <i class="fa-regular fa-heart"></i> التبرع</a></div>
+        <div class="nav-item dropdown">
+          <span>روابط مفيدة ▾</span>
+          <div class="dropdown-content">
+            <a href="https://translate.google.com" target="_blank">ترجمة جوجل</a>
+            <a href="https://www.bing.com/translator" target="_blank">ترجمة Bing</a>
+          </div>
+        </div>
+      </div>
+<div class="logo">
+     <a href="index.html" title="الصفحة الرئيسية">
+        <div class="nav__logo" style="direction:ltr;">
+            <div>click</div>
+            Bana
+        </div>
+        </a>
+  </div>
+    </div>
+
+  <header class="header">
+    <div id="langSelectorContainer"></div>
+    </header>
+    
+    <div class="toolbar" role="toolbar" aria-label="خيارات تنسيق المحرر">
+      <div class="toolbar-group">
+        <button id="bold" class="format" title="عريض"><i class="fas fa-bold"></i></button>
+        <button id="italic" class="format" title="مائل"><i class="fas fa-italic"></i></button>
+        <button id="underline" class="format" title="تحته خط"><i class="fas fa-underline"></i></button>
+        <button id="strikethrough" class="format" title="يتوسطه خط"><i class="fas fa-strikethrough"></i></button>
+      </div>
+      
+      <div class="toolbar-group">
+        <button id="justifyright" class="align" title="يمين"><i class="fas fa-align-right"></i></button>
+        <button id="justifycenter" class="align" title="وسط"><i class="fas fa-align-center"></i></button>
+        <button id="justifyleft" class="align" title="يسار"><i class="fas fa-align-left"></i></button>
+        <button id="justifyfull" class="align" title="ضبط"><i class="fas fa-align-justify"></i></button>
+      </div>
+      
+      <div class="toolbar-group">
+        <button id="insertOrderedList" title="قائمة مرقمة"><i class="fas fa-list-ol"></i></button>
+        <button id="insertUnorderedList" title="قائمة نقطية"><i class="fas fa-list"></i></button>
+      </div>
+      
+      <div class="toolbar-group">
+        <button id="indent" title="زيادة المسافة البادئة"><i class="fas fa-indent"></i></button>
+        <button id="outdent" title="تقليل المسافة البادئة"><i class="fas fa-outdent"></i></button>
+      </div>
+      
+      <div class="toolbar-group">
+        <button id="undo" title="تراجع"><i class="fas fa-undo"></i></button>
+        <button id="redo" title="إعادة"><i class="fas fa-redo"></i></button>
+      </div>
+      
+      <div class="toolbar-group">
+        <button id="createLink" title="إضافة رابط"><i class="fas fa-link"></i></button>
+        <button id="unlink" title="إزالة رابط"><i class="fas fa-unlink"></i></button>
+      </div>
+      
+      <div class="toolbar-group">
+        <select id="formatBlock" class="adv-opi-button">
+          <option value="p">فقرة</option>
+          <option value="h1-custom">ع1</option>
+          <option value="h2-custom">ع2</option>
+          <option value="h3-custom">ع3</option>
+          <option value="h4-custom">ع4</option>
+          <option value="h5-custom">ع5</option>
+          <option value="h6-custom">ع6</option>
+        </select>
+        
+        <select id="fontSize" title="حجم الخط">
+          <option value="1">صغير</option>
+          <option value="3" selected>عادي</option>
+          <option value="5">كبير</option>
+          <option value="7">كبير جداً</option>
+        </select>
+      </div>
+      
+      <div class="toolbar-group">
+        <div class="input-wrap" title="لون النص">
+          <input type="color" id="foreColor">
+          <label for="foreColor">لون</label>
+        </div>
+        
+        <div class="input-wrap">
+          <input type="checkbox" id="kbMappingToggle" checked>
+          <span></span>
+        <label>on/off</label>
+      </div>
+
+        <div class="input-wrap" title="لون التمييز">
+          <input type="color" id="backColor">
+          <label for="backColor">تمييز</label>
+        </div>
+      </div>
+      
+      <div class="toolbar-group">
+        <button id="clearAll" title="مسح كل النص">
+          <i class="fas fa-trash-alt"></i> مسح
+        </button>
+        <button id="copyAll" title="نسخ كل النص">
+          <i class="fas fa-copy"></i> نسخ
+        </button>
+      </div>
+      
+      <div class="toolbar-group" id="emojiGroup">
+        <button id="emojiButton" title="إضافة إيموجي">
+          <i class="fas fa-smile"></i> إيموجي
+        </button>
+        <div class="emoji-panel" id="emojiPanel">
+          <div class="emoji-category">إيموجي</div>
+        </div>
+      </div>
+      
+      <div class="toolbar-group search-group">
+        <button id="searchButton" title="البحث على الإنترنت">
+          <i class="fas fa-search"></i> بحث
+        </button>
+        <div class="search-dropdown">
+          <button class="search-option" data-engine="google">
+            <i class="fab fa-google"></i> جوجل
+          </button>
+          <button class="search-option" data-engine="youtube">
+            <i class="fab fa-youtube"></i> يوتيوب
+          </button>
+          <button class="search-option" data-engine="twitter">
+            <i class="fab fa-twitter"></i> تويتر
+          </button>
+          <button class="search-option" data-engine="facebook">
+            <i class="fab fa-facebook"></i> فيسبوك
+          </button>
+        </div>
+      </div>
+      
+      <div class="toolbar-group sendto-group ">
+        <button id="sendToButton" title="إرسال">
+          <i class="fas fa-paper-plane"></i> إرسال
+        </button>
+        <div class="sendto-dropdown">
+          <button class="sendto-option" data-action="print">
+            <i class="fas fa-print"></i> طباعة
+          </button>
+          <button class="sendto-option" data-action="download-txt">
+            <i class="fas fa-file-alt"></i> تحميل كـ TXT
+          </button>
+        </div>
+      </div>
+
+      <div class="toolbar-group">
+        <div class="dark-mode-toggle" id="darkModeToggle">
+          <i class="fas fa-moon"></i>
+          <div class="toggle-switch"></div>
+          <span class="dark-mode-text">داكن</span>
+        </div>
+      </div>
+      
+      <div class="toolbar-group">
+        <button id="toggleKeyboard" title="لوحة المفاتيح العربية">
+          <i class="fas fa-keyboard"></i> عربي
+        </button>
+      </div>
+    </div>
+    
+    <div class="editor-container">
+      <div id="text-input" contenteditable="true" dir="rtl" lang="ar" role="textbox" aria-label="منطقة محرر النصوص"></div>
+    </div>
+    
+    <div class="status-bar">
+      <div class="editor-info">محرر النصوص</div>
+      <div class="word-count">
+        <span id="wordCount">كلمات: 0</span>
+        <span id="charCount">أحرف: 0</span>
+      </div>
+    </div>
+    
+   <div class="keyboard-container" id="arabicKeyboard">
+  <div class="shift-indicator">شيفت نشط</div>
+  
+  <div class="keyboard-rows-container">
+    <div class="keyboard-row">
+      <div class="keyboard-key" data-key="ذ" data-shift="~">~<br>ذ</div>
+      <div class="keyboard-key" data-key="١" data-shift="!">!<br>١</div>
+      <div class="keyboard-key" data-key="٢" data-shift="@">@<br>٢</div>
+      <div class="keyboard-key" data-key="٣" data-shift="#">#<br>٣</div>
+      <div class="keyboard-key" data-key="٤" data-shift="$">$<br>٤</div>
+      <div class="keyboard-key" data-key="٥" data-shift="%">%<br>٥</div>
+      <div class="keyboard-key" data-key="٦" data-shift="^">^<br>٦</div>
+      <div class="keyboard-key" data-key="٧" data-shift="&">&<br>٧</div>
+      <div class="keyboard-key" data-key="٨" data-shift="*">*<br>٨</div>
+      <div class="keyboard-key" data-key="٩" data-shift="(">(<br>٩</div>
+      <div class="keyboard-key" data-key="٠" data-shift=")">)<br>٠</div>
+      <div class="keyboard-key" data-key="-" data-shift="_">_<br>-</div>
+      <div class="keyboard-key" data-key="=" data-shift="+">+<br>=</div>
+      <div class="keyboard-key backspace" id="backspaceKey">
+        <i class="fas fa-backspace"></i>
+      </div>
+    </div>
+    
+    <div class="keyboard-row">
+      <div class="keyboard-key shift" id="shiftKey">شيفت</div>
+      <div class="keyboard-key caps" id="capsLockKey">كابس</div>
+      <!-- Updated letter keys with correct mappings -->
+      <div class="keyboard-key letter" data-key="ض" data-shift="َ" data-latin="q">َ<br>ض</div>
+      <div class="keyboard-key letter" data-key="ص" data-shift="ً" data-latin="w">ً<br>ص</div>
+      <div class="keyboard-key letter" data-key="ث" data-shift="ُ" data-latin="e">ُ<br>ث</div>
+      <div class="keyboard-key letter" data-key="ق" data-shift="ق" data-latin="r">ق<br>ق</div>
+      <div class="keyboard-key letter" data-key="ف" data-shift="ف" data-latin="t">ف<br>ف</div>
+      <div class="keyboard-key letter" data-key="غ" data-shift="إ" data-latin="y">إ<br>غ</div>
+      <div class="keyboard-key letter" data-key="ع" data-shift="‘" data-latin="u">‘<br>ع</div>
+      <div class="keyboard-key letter" data-key="ه" data-shift="ه" data-latin="i">ه<br>ه</div>
+      <div class="keyboard-key letter" data-key="خ" data-shift="خ" data-latin="o">خ<br>خ</div>
+      <div class="keyboard-key letter" data-key="ح" data-shift="؛" data-latin="p">؛<br>ح</div>
+      <!-- Updated backslash key -->
+      <div class="keyboard-key letter" data-key="\" data-shift="ّ">ّ<br>\</div>
+    </div>
+    
+    <div class="keyboard-row">
+      <!-- Updated letter keys with correct mappings -->
+      <div class="keyboard-key letter" data-key="ش" data-shift="\" data-latin="a">\<br>ش</div>
+      <div class="keyboard-key letter" data-key="س" data-shift="س" data-latin="s">س<br>س</div>
+      <div class="keyboard-key letter" data-key="ي" data-shift="]" data-latin="d">]<br>ي</div>
+      <div class="keyboard-key letter" data-key="ب" data-shift="[" data-latin="f">[<br>ب</div>
+      <div class="keyboard-key letter" data-key="ل" data-shift="ل" data-latin="g">ل<br>ل</div>
+      <div class="keyboard-key letter" data-key="ا" data-shift="ا" data-latin="h">ا<br>ا</div>
+      <div class="keyboard-key letter" data-key="ت" data-shift="ت" data-latin="j">ت<br>ت</div>
+      <div class="keyboard-key letter" data-key="ن" data-shift="،" data-latin="k">،<br>ن</div>
+      <div class="keyboard-key letter" data-key="م" data-shift="/" data-latin="l">/<br>م</div>
+      <!-- Updated punctuation keys -->
+      <div class="keyboard-key letter" data-key="ك" data-shift=":">:<br>ك</div>
+      <div class="keyboard-key letter" data-key="ط" data-shift='"'>"<br>ط</div>
+      <div class="keyboard-key enter" id="enterKey">إدخال</div>
+    </div>
+    
+    <div class="keyboard-row">
+      <!-- Updated letter keys with correct mappings -->
+      <div class="keyboard-key letter" data-key="ئ" data-shift="~" data-latin="z">~<br>ئ</div>
+      <div class="keyboard-key letter" data-key="ء" data-shift="ْ" data-latin="x">ْ<br>ء</div>
+      <div class="keyboard-key letter" data-key="ؤ" data-shift="ِ" data-latin="c">ِ<br>ؤ</div>
+      <div class="keyboard-key letter" data-key="ر" data-shift="ٍ" data-latin="v">ٍ<br>ر</div>
+      <div class="keyboard-key letter" data-key="لا" data-shift="ى" data-latin="b">لا<br>لا</div>
+      <div class="keyboard-key letter" data-key="ى" data-shift="ى" data-latin="n">ى<br>ى</div>
+      <div class="keyboard-key letter" data-key="ة" data-shift="-" data-latin="m">ة<br>ة</div>
+      <!-- Updated punctuation keys -->
+      <div class="keyboard-key letter" data-key="و" data-shift="," data-latin="<" >,<br>و</div>
+      <div class="keyboard-key letter" data-key="ز" data-shift="." data-latin=">">.<br>ز</div>
+      <div class="keyboard-key letter" data-key="ظ" data-shift="؟" data-latin="/">؟<br>ظ</div>
+    </div>
+    
+    <div class="keyboard-row">
+      <div class="keyboard-key space" data-key="مسافة">مسافة</div>
+      <div class="keyboard-key toggle" id="closeKeyboard">
+        <i class="fas fa-times"></i> إغلاق
+      </div>
+    </div>
+  </div>
+  <div class="keyboard-state">
+        <div class="state-indicator" id="shiftIndicator">
+          <i class="fas fa-arrow-up"></i> شيفت
+        </div>
+        <div class="state-indicator" id="capsIndicator">
+          <i class="fas fa-lock"></i> كابس لوك
+        </div>
+      </div>
+        <div class="keyboard-info">
+        انقر على أحرف لوحة المفاتيح العربية للكتابة
+      </div>
+    </div>
+  </div>
+                <div class="context-menu" id="contextMenu">
+                <div class="input-section">
+                    <textarea id="queryInput" placeholder="Modify your query here..."></textarea>
+                    <p style="color: #a0a0c0; font-size: 0.9rem; text-align: center;">يمكنك تعديل سؤالك قبل البحث</p>
+                </div>
+                <div class="search-options">
+                    <div class="search-option" data-engine="chatgpt">
+                        <i class="fas fa-robot chatgpt"></i>
+                        <span class="label">ChatGPT</span>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="search-option" data-engine="copilot">
+                        <i class="fas fa-robot copilot"></i>
+                        <span class="label">Copilot</span>
+                    </div>
+                </div>
+            </div>
+</div>
+   <div class="toast" id="toast"></div>
+   <script src="arabicjs.js" type="module"> </script>
+</body>
+</html>

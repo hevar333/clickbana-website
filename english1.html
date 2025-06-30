@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>English Text Editor with Virtual Keyboard</title>
+  <meta name="description" content="English text editor with formatting tools and virtual keyboard">
+  <meta name="keywords" content="english text editor, english keyboard, online editor, text editor">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="styleltr.css">
+<body>
+  <div class="container">
+    <!-- Top navigation bar -->
+    <div class="top-bar">
+      <div class="nav-container">
+        <div class="nav-item"><a href="donipage.html" target="_blank">
+           <i class="fa-regular fa-heart"></i> Donation</a></div>
+        <div class="nav-item dropdown">
+          <span>Useful Links ▾</span>
+          <div class="dropdown-content">
+            <a href="https://translate.google.com" target="_blank">Google Translate</a>
+            <a href="https://www.bing.com/translator" target="_blank">Bing Translator</a>
+          </div>
+        </div>
+      </div>
+      <div class="logo">
+   <a href="index.html" title="homepage">
+        <div class="nav__logo" style="direction:ltr;">
+            <div>click</div>
+            Bana
+        </div>
+        </a>
+  </div>
+    </div>
+    
+ <header class="header">
+ <div id="langSelectorContainer"></div>
+    </header>
+    
+    <div class="toolbar" role="toolbar" aria-label="Editor formatting options">
+      <div class="toolbar-group">
+        <button id="bold" class="format" title="Bold"><i class="fas fa-bold"></i></button>
+        <button id="italic" class="format" title="Italic"><i class="fas fa-italic"></i></button>
+        <button id="underline" class="format" title="Underline"><i class="fas fa-underline"></i></button>
+        <button id="strikethrough" class="format" title="Strikethrough"><i class="fas fa-strikethrough"></i></button>
+      </div>
+      
+      <div class="toolbar-group">
+        <button id="justifyright" class="align" title="Align Right"><i class="fas fa-align-right"></i></button>
+        <button id="justifycenter" class="align" title="Center"><i class="fas fa-align-center"></i></button>
+         <button id="justifyleft" class="align" title="Align Left"><i class="fas fa-align-left"></i></button>
+        <button id="justifyfull" class="align" title="Justify"><i class="fas fa-align-justify"></i></button>
+      </div>
+      
+      <div class="toolbar-group">
+        <button id="insertOrderedList" title="Numbered List"><i class="fas fa-list-ol"></i></button>
+        <button id="insertUnorderedList" title="Bullet List"><i class="fas fa-list"></i></button>
+      </div>
+      
+      <div class="toolbar-group">
+        <button id="indent" title="Indent"><i class="fas fa-indent"></i></button>
+        <button id="outdent" title="Outdent"><i class="fas fa-outdent"></i></button>
+      </div>
+      
+      <div class="toolbar-group">
+        <button id="undo" title="Undo"><i class="fas fa-undo"></i></button>
+        <button id="redo" title="Redo"><i class="fas fa-redo"></i></button>
+      </div>
+      
+      <div class="toolbar-group">
+        <button id="createLink" title="Insert Link"><i class="fas fa-link"></i></button>
+        <button id="unlink" title="Remove Link"><i class="fas fa-unlink"></i></button>
+      </div>
+      
+      <div class="toolbar-group">
+        <select id="formatBlock" class="adv-opi-button">
+          <option value="p">Paragraph</option>
+          <option value="h1-custom">H1</option>
+          <option value="h2-custom">H2</option>
+          <option value="h3-custom">H3</option>
+          <option value="h4-custom">H4</option>
+          <option value="h5-custom">H5</option>
+          <option value="h6-custom">H6</option>
+        </select>
+        
+        <select id="fontSize" title="Font Size">
+          <option value="1">Small</option>
+          <option value="3" selected>Normal</option>
+          <option value="5">Large</option>
+          <option value="7">X-Large</option>
+        </select>
+      </div>
+      
+      <div class="toolbar-group">
+        <div class="input-wrap" title="Text Color">
+          <input type="color" id="foreColor">
+          <label for="foreColor">Text</label>
+        </div>
+        
+        <div class="input-wrap" title="Highlight Color">
+          <input type="color" id="backColor">
+          <label for="backColor">Highlight</label>
+        </div>
+      </div>
+    
+      <div class="input-wrap">
+          <input type="checkbox" id="kbMappingToggle" checked>
+          <span></span>
+        <label>on/off</label>
+      </div>
+      
+      <!-- New buttons for Clear and Copy -->
+      <div class="toolbar-group">
+        <button id="clearAll" title="Clear all text">
+          <i class="fas fa-trash-alt"></i> Clear
+        </button>
+        <button id="copyAll" title="Copy all text">
+          <i class="fas fa-copy"></i> Copy
+        </button>
+      </div>
+      
+      <!-- Emoji button -->
+      <div class="toolbar-group" id="emojiGroup">
+        <button id="emojiButton" title="Add Emoji">
+          <i class="fas fa-smile"></i> Emoji
+        </button>
+        <div class="emoji-panel" id="emojiPanel">
+          <div class="emoji-category">Emoji</div>
+          <!-- Emojis will be added here by JavaScript -->
+        </div>
+      </div>
+      
+      <!-- Search button -->
+      <div class="toolbar-group search-group">
+        <button id="searchButton" title="Search on the web">
+          <i class="fas fa-search"></i> Search
+        </button>
+        <div class="search-dropdown">
+          <button class="search-option" data-engine="google">
+            <i class="fab fa-google"></i> Google
+          </button>
+          <button class="search-option" data-engine="youtube">
+            <i class="fab fa-youtube"></i> YouTube
+          </button>
+          <button class="search-option" data-engine="twitter">
+            <i class="fab fa-twitter"></i> Twitter
+          </button>
+          <button class="search-option" data-engine="facebook">
+            <i class="fab fa-facebook"></i> Facebook
+          </button>
+        </div>
+      </div>
+      
+      <div class="toolbar-group sendto-group ">
+        <button id="sendToButton" title="Send to">
+          <i class="fas fa-paper-plane"></i> Export
+        </button>
+        <div class="sendto-dropdown">
+          <button class="sendto-option" data-action="print">
+            <i class="fas fa-print"></i> Print
+          </button>
+          <button class="sendto-option" data-action="download-txt">
+            <i class="fas fa-file-alt"></i> Download as TXT
+          </button>
+        </div>
+      </div>
+
+      <div class="toolbar-group">
+        <div class="dark-mode-toggle" id="darkModeToggle">
+          <i class="fas fa-moon"></i>
+          <div class="toggle-switch"></div>
+          <span class="dark-mode-text">Dark</span>
+        </div>
+      </div>
+      
+      <div class="toolbar-group">
+        <button id="toggleKeyboard" title="English Keyboard">
+          <i class="fas fa-keyboard"></i> Keyboard
+        </button>
+      </div>
+    </div>
+    
+    <div class="editor-container">
+      <div id="text-input" contenteditable="true" dir="ltr" lang="en" role="textbox" aria-label="Text editor area"></div>
+    </div>
+    
+    <div class="status-bar">
+      <div class="editor-info">English Text Editor</div>
+      <div class="word-count">
+        <span id="wordCount">Words: 0</span>
+        <span id="charCount">Characters: 0</span>
+      </div>
+    </div>
+    
+    <div class="keyboard-container" id="englishKeyboard">
+      <div class="shift-indicator">Shift Active</div>
+      
+      <div class="keyboard-rows-container">
+        <div class="keyboard-row">
+          <div class="keyboard-key" data-key="`" data-shift="~">~<br>`</div>
+          <div class="keyboard-key" data-key="1" data-shift="!">!<br>1</div>
+          <div class="keyboard-key" data-key="2" data-shift="@">@<br>2</div>
+          <div class="keyboard-key" data-key="3" data-shift="#">#<br>3</div>
+          <div class="keyboard-key" data-key="4" data-shift="$">$<br>4</div>
+          <div class="keyboard-key" data-key="5" data-shift="%">%<br>5</div>
+          <div class="keyboard-key" data-key="6" data-shift="^">^<br>6</div>
+          <div class="keyboard-key" data-key="7" data-shift="&">&<br>7</div>
+          <div class="keyboard-key" data-key="8" data-shift="*">*<br>8</div>
+          <div class="keyboard-key" data-key="9" data-shift="(">(<br>9</div>
+          <div class="keyboard-key" data-key="0" data-shift=")">)<br>0</div>
+          <div class="keyboard-key" data-key="-" data-shift="_">_<br>-</div>
+          <div class="keyboard-key" data-key="=" data-shift="+">+<br>=</div>
+          <div class="keyboard-key backspace" id="backspaceKey">
+            <i class="fas fa-backspace"></i>
+          </div>
+        </div>
+        
+        <div class="keyboard-row">
+          <div class="keyboard-key shift" id="shiftKey">Shift</div>
+          <div class="keyboard-key caps" id="capsLockKey">Caps</div>
+          <div class="keyboard-key letter" data-key="q" data-shift="Q">q</div>
+          <div class="keyboard-key letter" data-key="w" data-shift="W">w</div>
+          <div class="keyboard-key letter" data-key="e" data-shift="E">e</div>
+          <div class="keyboard-key letter" data-key="r" data-shift="R">r</div>
+          <div class="keyboard-key letter" data-key="t" data-shift="T">t</div>
+          <div class="keyboard-key letter" data-key="y" data-shift="Y">y</div>
+          <div class="keyboard-key letter" data-key="u" data-shift="U">u</div>
+          <div class="keyboard-key letter" data-key="i" data-shift="I">i</div>
+          <div class="keyboard-key letter" data-key="o" data-shift="O">o</div>
+          <div class="keyboard-key letter" data-key="p" data-shift="P">p</div>
+          <div class="keyboard-key" data-key="[" data-shift="{">{<br>[</div>
+          <div class="keyboard-key" data-key="]" data-shift="}">}<br>]</div>
+        </div>
+        
+        <div class="keyboard-row">
+          <div class="keyboard-key letter" data-key="a" data-shift="A">a</div>
+          <div class="keyboard-key letter" data-key="s" data-shift="S">s</div>
+          <div class="keyboard-key letter" data-key="d" data-shift="D">d</div>
+          <div class="keyboard-key letter" data-key="f" data-shift="F">f</div>
+          <div class="keyboard-key letter" data-key="g" data-shift="G">g</div>
+          <div class="keyboard-key letter" data-key="h" data-shift="H">h</div>
+          <div class="keyboard-key letter" data-key="j" data-shift="J">j</div>
+          <div class="keyboard-key letter" data-key="k" data-shift="K">k</div>
+          <div class="keyboard-key letter" data-key="l" data-shift="L">l</div>
+          <div class="keyboard-key" data-key=";" data-shift=":">:<br>;</div>
+          <div class="keyboard-key" data-key="'" data-shift='"'>"<br>'</div>
+          <div class="keyboard-key" data-key="\" data-shift='|'>|<br>\</div>
+          <div class="keyboard-key enter" id="enterKey">Enter</div>
+        </div>
+        
+        <div class="keyboard-row">
+          <div class="keyboard-key letter" data-key="z" data-shift="Z">z</div>
+          <div class="keyboard-key letter" data-key="x" data-shift="X">x</div>
+          <div class="keyboard-key letter" data-key="c" data-shift="C">c</div>
+          <div class="keyboard-key letter" data-key="v" data-shift="V">v</div>
+          <div class="keyboard-key letter" data-key="b" data-shift="B">b</div>
+          <div class="keyboard-key letter" data-key="n" data-shift="N">n</div>
+          <div class="keyboard-key letter" data-key="m" data-shift="M">m</div>
+          <div class="keyboard-key" data-key="," data-shift="<"><<br>,</div>
+          <div class="keyboard-key" data-key="." data-shift=">">><br>.</div>
+          <div class="keyboard-key" data-key="/" data-shift="?">?<br>/</div>
+        </div>
+        
+        <div class="keyboard-row">
+          <div class="keyboard-key space" data-key=" ">Space</div>
+          <div class="keyboard-key toggle" id="closeKeyboard">
+            <i class="fas fa-times"></i> Close
+          </div>
+        </div>
+      </div>
+      
+      <div class="keyboard-state">
+        <div class="state-indicator" id="shiftIndicator">
+          <i class="fas fa-arrow-up"></i> Shift
+        </div>
+        <div class="state-indicator" id="capsIndicator">
+          <i class="fas fa-lock"></i> Caps Lock
+        </div>
+      </div>
+      
+      <div class="keyboard-info">
+        Click on keys to type. Use the Shift key for special characters.
+      </div>
+    </div>
+     <div class="context-menu" id="contextMenu">
+                <div class="input-section">
+                    <textarea id="queryInput" placeholder="Modify your query here..."></textarea>
+                    <p style="color: #a0a0c0; font-size: 0.9rem; text-align: center;">You can edit your question before searching.</p>
+                </div>
+                <div class="search-options">
+                    <div class="search-option" data-engine="chatgpt">
+                        <i class="fas fa-robot chatgpt"></i>
+                        <span class="label">ChatGPT</span>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="search-option" data-engine="copilot">
+                        <i class="fas fa-robot copilot"></i>
+                        <span class="label">Copilot</span>
+                    </div>
+                </div>
+            </div>
+  </div>
+  
+  <!-- Toast notification -->
+  <div class="toast" id="toast"></div>
+<script src="javescripten.js" type="module"></script>
+</body>
+</html>
+

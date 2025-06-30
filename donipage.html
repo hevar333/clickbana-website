@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="KeyBoard - Your premier platform for language keyboard with layout in English, Kurdish, Arabic, Spanish, and French.">
+    <meta name="keywords" content="keyboard, doc, online keyboard, English keyboard Kurdish keyboard, Arabic keyboard, Spanish keyboard, French keyboard">
+    <meta name="author" content="KeyBoard online">
+    <meta property="og:title" content="online">
+    <meta property="og:description" content="use keyboard online with our comprehensive layout in English, Kurdish, Arabic, Spanish, and French.">
+    <meta property="og:type" content="website">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <title>ClickBana - Donate</title>
+    <link rel="stylesheet" href="doninpage.css"> 
+</head>
+<body>
+    <nav>
+         <a href="index.html">
+        <div class="nav__logo" style="direction:ltr;">
+            <div>click</div>
+            Bana
+        </div>
+        </a>
+        <div class="language-dropdown">
+            <div class="language-selector">
+                <span id="current-lang">English</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="language-dropdown-menu">
+                <div class="language-option active" data-lang="en">
+                    <img src="https://flagcdn.com/w20/gb.png" class="language-flag" alt="English">
+                    <span>English</span>
+                </div>
+                <div class="language-option" data-lang="ar">
+                    <img src="https://flagcdn.com/w20/sa.png" class="language-flag" alt="Arabic">
+                    <span>العربية (Arabic)</span>
+                </div>
+                <div class="language-option" data-lang="ku">
+                    <img src="Flag_of_Kurdistan.png" class="language-flag" alt="Kurdishku">
+                    <span>کورمانجی (Kurdish)</span>
+                </div>
+             <div class="language-option" data-lang="ckb">
+                    <img src="Flag_of_Kurdistan.png" class="language-flag" alt="Kurdish">
+                    <span>سۆرانی (Kurdish)</span>
+                </div>
+            </div>
+        </div>
+        <div class="nav__contact">
+            <div class="nav__contact__card">
+                <span aria-hidden="true"><i class="fa-solid fa-house"></i></span>
+                <div>
+                  <p id="home-label">Homepage</p>
+                  <h4>
+                    <a href="index.html" id="home-link">
+                      click
+                    </a>
+                  </h4>
+                </div>
+            </div>
+            <div class="nav__contact__card">
+              <span aria-hidden="true"><i class="ri-mail-line"></i></span>
+              <div>
+                <p id="contact-label">Contact Us</p>
+                <h4>
+                  <a href="https://www.instagram.com/hevar_x_x/" target="_blank" id="contact-link">Contact</a>
+                </h4>
+              </div>
+            </div>
+        </div>
+    </nav>
+    
+    <main class="main-container">
+        <div class="donation-container">
+            <h1 class="donation-title" id="support-title">Support KeyBoard Development</h1>
+            <p class="donation-description" id="support-description">
+                Your donation helps us maintain and improve KeyBoard, keeping it free and accessible for everyone worldwide.
+                Choose your preferred donation method below:
+            </p>
+            
+            <div class="donation-methods">
+                
+                <!-- Patreon -->
+                <div class="donation-method">
+                    <div class="method-icon">
+                        <i class="fab fa-patreon"></i>
+                    </div>
+                    <h3 class="method-title" id="patreon-title">Patreon</h3>
+                    <p class="method-description" id="patreon-description">
+                        Become a patron and support us with monthly contributions.
+                    </p>
+                    <a href="https://patreon.com/Hevar55?utm_medium=unknown&utm_source=join_link&utm_campaign=creatorshare_creator&utm_content=copyLink" target="_blank" class="donate-btn patreon-btn" id="patreon-button">
+                        Support on Patreon
+                    </a>
+                </div>
+                
+            </div>
+            
+            <div class="why-donate">
+                <h3 id="why-donate">Why Donate?</h3>
+                <ul>
+                    <li id="reason1">Help cover server costs and infrastructure</li>
+                    <li id="reason2">Support ongoing development and new features</li>
+                    <li id="reason3">Enable us to add more language keyboards</li>
+                    <li id="reason4">Keep KeyBoard free and accessible to everyone</li>
+                    <li id="reason5">Support open-source development</li>
+                </ul>
+            </div>
+        </div>
+               <div class="dark-mode-toggle" id="darkModeToggle">
+                <i class="fas fa-moon"></i>
+                <div class="toggle-switch"></div>
+                <span class="dark-mode-text" id="dark-mode-text">Dark Mode</span>
+            </div>
+    </main>
+    <script src="donipagejs.js" type="module"></script>
+</body>
+</html>

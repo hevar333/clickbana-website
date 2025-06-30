@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="ku" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>جێگایی نوسینی دەق - Kurdish Text Editor with Virtual Keyboard</title>
+  <meta name="description" content="پڕۆگرامی نوسینی دەق بە کوردی بە کلیلەدانی خەیاڵی - Kurdish text editor with formatting tools and virtual keyboard">
+  <meta name="keywords" content="kurdish text editor, kurdish keyboard, online editor, sorani editor, kurdish writing">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Kurdish:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="stylertl.css">
+</head>
+<body>
+  <div class="container">
+  <div class="top-bar">
+
+  <!-- Navigation Section -->
+  <div class="nav-container">
+    <div class="nav-item"><a href="donipage.html" target="_blank"
+      ><i class="fa-regular fa-heart"></i> بەخشین</a></div>
+    <div class="nav-item dropdown">
+      <span>بەستەرە بەسوودەکان ▾</span>
+      <div class="dropdown-content">
+        <a href="https://translate.google.com" target="_blank">وەرگێڕانی گووگڵ</a>
+        <a href="https://www.bing.com/translator" target="_blank">وەرگێڕانی Bing</a>
+      </div>
+    </div>
+  </div>
+  <!-- Logo Section -->
+  <div class="logo">
+     <a href="index.html" title="پەرەی سەرەکی">
+        <div class="nav__logo" style="direction:ltr;">
+            <div>click</div>
+            Bana
+        </div>
+        </a>
+  </div>
+</div>
+
+    <header class="header">
+    
+    <div id="langSelectorContainer"></div>
+    </header>
+    
+    <div class="toolbar" role="toolbar" aria-label="Editor formatting options">
+      <div class="toolbar-group">
+        <button id="bold" class="format" title="تۆخ"><i class="fas fa-bold"></i></button>
+        <button id="italic" class="format" title="لار"><i class="fas fa-italic"></i></button>
+        <button id="underline" class="format" title="خەت لە ژێرەوە"><i class="fas fa-underline"></i></button>
+        <button id="strikethrough" class="format" title="خەت لەسەر"><i class="fas fa-strikethrough"></i></button>
+      </div>
+      
+      <div class="toolbar-group">
+        <button id="justifyright" class="align" title="ڕاست"><i class="fas fa-align-right"></i></button>
+        <button id="justifycenter" class="align" title="ناوەڕاست"><i class="fas fa-align-center"></i></button>
+         <button id="justifyleft" class="align" title="چەپ"><i class="fas fa-align-left"></i></button>
+        <button id="justifyfull" class="align" title="ڕێک"><i class="fas fa-align-justify"></i></button>
+      </div>
+      
+      <div class="toolbar-group">
+        <button id="insertOrderedList" title="لیستی ژمارەدار"><i class="fas fa-list-ol"></i></button>
+        <button id="insertUnorderedList" title="لیستی خاڵی"><i class="fas fa-list"></i></button>
+      </div>
+      
+      <div class="toolbar-group">
+        <button id="indent" title="بۆ ناوەوە"><i class="fas fa-indent"></i></button>
+        <button id="outdent" title="بۆ دەرەوە"><i class="fas fa-outdent"></i></button>
+      </div>
+      
+      <div class="toolbar-group">
+        <button id="undo" title="گەڕانەوە"><i class="fas fa-undo"></i></button>
+        <button id="redo" title="دووبارەکردنەوە"><i class="fas fa-redo"></i></button>
+      </div>
+      
+      <div class="toolbar-group">
+        <button id="createLink" title="زیادکردنی بەستەر"><i class="fas fa-link"></i></button>
+        <button id="unlink" title="لابردنی بەستەر"><i class="fas fa-unlink"></i></button>
+      </div>
+      
+      <div class="toolbar-group">
+        <select id="formatBlock" class="adv-opi-button">
+          <option value="p">پاراگراف</option>
+          <option value="h1-custom">س1</option>
+          <option value="h2-custom">س2</option>
+          <option value="h3-custom">س3</option>
+          <option value="h4-custom">س4</option>
+          <option value="h5-custom">س5</option>
+          <option value="h6-custom">س6</option>
+        </select>
+        
+        <select id="fontSize" title="قەبارەی فۆنت">
+          <option value="1">بچوک</option>
+          <option value="3" selected>نۆرمال</option>
+          <option value="5">گەورە</option>
+          <option value="7">زۆر گەورە</option>
+        </select>
+      </div>
+      
+      <div class="toolbar-group">
+        <div class="input-wrap" title="ڕەنگی دەق">
+          <input type="color" id="foreColor">
+          <label for="foreColor">ڕەنگ</label>
+        </div>
+        
+        <div class="input-wrap" title="ڕەنگی هایلایت">
+          <input type="color" id="backColor">
+          <label for="backColor">هایلایت</label>
+        </div>
+      </div>
+      
+      <div class="input-wrap">
+          <input type="checkbox" id="kbMappingToggle" checked>
+          <span></span>
+        <label>on/off</label>
+      </div>
+      
+      <!-- New buttons for Clear and Copy -->
+      <div class="toolbar-group">
+        <button id="clearAll" title="پاککردنی هەموو دەقەکە">
+          <i class="fas fa-trash-alt"></i> پاککردن
+        </button>
+        <button id="copyAll" title="کۆپی کردنی هەموو دەقەکە">
+          <i class="fas fa-copy"></i> کۆپی
+        </button>
+      </div>
+      
+      <!-- Emoji button -->
+      <div class="toolbar-group" id="emojiGroup">
+        <button id="emojiButton" title="ئیمۆجی زیاد بکە">
+          <i class="fas fa-smile"></i> ئاڵت
+        </button>
+        <div class="emoji-panel" id="emojiPanel">
+          <div class="emoji-category">ئیمۆجی</div>
+          <!-- Emojis will be added here by JavaScript -->
+        </div>
+      </div>
+      
+      <!-- Search button -->
+      <div class="toolbar-group search-group">
+        <button id="searchButton" title="گەڕان لەسەر ئینتەرنێت">
+          <i class="fas fa-search"></i> گەڕان
+        </button>
+        <div class="search-dropdown">
+          <button class="search-option" data-engine="google">
+            <i class="fab fa-google"></i> گووگڵ
+          </button>
+          <button class="search-option" data-engine="youtube">
+            <i class="fab fa-youtube"></i> یوتیوب
+          </button>
+          <button class="search-option" data-engine="twitter">
+            <i class="fab fa-twitter"></i> تویتەر
+          </button>
+          <button class="search-option" data-engine="facebook">
+            <i class="fab fa-facebook"></i> فەیسبووک
+          </button>
+        </div>
+      </div>
+      
+      <div class="toolbar-group sendto-group ">
+        <button id="sendToButton" title="ناردن">
+          <i class="fas fa-paper-plane"></i> ناردن
+        </button>
+        <div class="sendto-dropdown">
+          <button class="sendto-option" data-action="print">
+            <i class="fas fa-print"></i> چاپکردن
+          </button>
+          <button class="sendto-option" data-action="download-txt">
+            <i class="fas fa-file-alt"></i> داگرتن وەک TXT
+          </button>
+        </div>
+      </div>
+
+      <div class="toolbar-group">
+        <div class="dark-mode-toggle" id="darkModeToggle">
+          <i class="fas fa-moon"></i>
+          <div class="toggle-switch"></div>
+          <span class="dark-mode-text">تاریکی</span>
+        </div>
+      </div>
+      
+      <div class="toolbar-group">
+        <button id="toggleKeyboard" title="تەختەکلیل کوردی">
+          <i class="fas fa-keyboard"></i> کوردی
+        </button>
+      </div>
+    </div>
+    
+    
+    <div class="editor-container">
+      <div id="text-input" contenteditable="true" dir="rtl" lang="ku" role="textbox" aria-label="Text editor area"></div>
+    </div>
+    
+    <div class="status-bar">
+      <div class="editor-info">نوسەری دەق</div>
+      <div class="word-count">
+        <span id="wordCount">وشە: 0</span>
+        <span id="charCount">پیت: 0</span>
+      </div>
+    </div>
+    
+    <div class="keyboard-container" id="kurdishKeyboard">
+  <div class="shift-indicator">شفت چالاکە</div>
+  
+  <div class="keyboard-rows-container">
+    <!-- Row 1: Numbers/Symbols (unchanged) -->
+    <div class="keyboard-row">
+      <div class="keyboard-key" data-key="`" data-shift="~">~<br>`</div>
+      <div class="keyboard-key" data-key="١" data-shift="!">!<br>١</div>
+      <div class="keyboard-key" data-key="٢" data-shift="@">@<br>٢</div>
+      <div class="keyboard-key" data-key="٣" data-shift="#">#<br>٣</div>
+      <div class="keyboard-key" data-key="٤" data-shift="$">$<br>٤</div>
+      <div class="keyboard-key" data-key="٥" data-shift="%">%<br>٥</div>
+      <div class="keyboard-key" data-key="٦" data-shift="^">^<br>٦</div>
+      <div class="keyboard-key" data-key="٧" data-shift="&">&<br>٧</div>
+      <div class="keyboard-key" data-key="٨" data-shift="*">*<br>٨</div>
+      <div class="keyboard-key" data-key="٩" data-shift="(">(<br>٩</div>
+      <div class="keyboard-key" data-key="٠" data-shift=")">)<br>٠</div>
+      <div class="keyboard-key" data-key="-" data-shift="_">_<br>-</div>
+      <div class="keyboard-key" data-key="=" data-shift="+">+<br>=</div>
+      <div class="keyboard-key backspace" id="backspaceKey">
+        <i class="fas fa-backspace"></i>
+      </div>
+    </div>
+    
+    <!-- Row 2: Letters (updated) -->
+    <div class="keyboard-row">
+      <div class="keyboard-key shift" id="shiftKey">شفت</div>
+      <div class="keyboard-key caps" id="capsLockKey">کەپس</div>
+      <div class="keyboard-key letter" data-key="پ" data-shift="ث" data-latin="p"></div>
+      <div class="keyboard-key letter" data-key="ۆ" data-shift="ٶ" data-latin="o"></div>
+      <div class="keyboard-key letter" data-key="ی" data-shift="ێ" data-latin="y"></div>
+      <div class="keyboard-key letter" data-key="ر" data-shift="ڕ" data-latin="r"></div>
+      <div class="keyboard-key letter" data-key="ت" data-shift="ط" data-latin="t"></div>
+      <div class="keyboard-key letter" data-key="ئ" data-shift="ء" data-latin="u"></div>
+      <div class="keyboard-key letter" data-key="و" data-shift="وو" data-latin="w"></div>
+      <div class="keyboard-key letter" data-key="ھ" data-shift="ح" data-latin="h"></div>
+      <div class="keyboard-key" data-key="\" data-shift="|">\|</div>
+    </div>
+    
+    <!-- Row 3: Letters (updated) -->
+    <div class="keyboard-row">
+      <div class="keyboard-key letter" data-key="ا" data-shift="آ" data-latin="a"></div>
+      <div class="keyboard-key letter" data-key="س" data-shift="ش" data-latin="s"></div>
+      <div class="keyboard-key letter" data-key="د" data-shift="ذ" data-latin="d"></div>
+      <div class="keyboard-key letter" data-key="ق" data-shift="ق" data-latin="q"></div> <!-- No shift mapping -->
+      <div class="keyboard-key letter" data-key="ف" data-shift="إ" data-latin="f"></div>
+      <div class="keyboard-key letter" data-key="گ" data-shift="غ" data-latin="g"></div>
+      <div class="keyboard-key letter" data-key="ە" data-shift="ي" data-latin="e"></div>
+      <div class="keyboard-key letter" data-key="ج" data-shift="چ" data-latin="c"></div>
+      <div class="keyboard-key letter" data-key="ک" data-shift="ك" data-latin="k"></div>
+      <div class="keyboard-key letter" data-key="ل" data-shift="ڵ" data-latin="l"></div>
+      <div class="keyboard-key" data-key="؛" data-shift="<"">؛</div>
+      <div class="keyboard-key" data-key="'" data-shift='"'>'"</div>
+      <div class="keyboard-key enter" id="enterKey">داخل</div>
+    </div>
+    
+    <!-- Row 4: Letters (updated) -->
+    <div class="keyboard-row">
+      <div class="keyboard-key letter" data-key="ژ" data-shift="أ" data-latin="j"></div>
+      <div class="keyboard-key letter" data-key="ز" data-shift="ض" data-latin="z"></div>
+      <div class="keyboard-key letter" data-key="خ" data-shift="ص" data-latin="x"></div>
+      <div class="keyboard-key letter" data-key="ع" data-shift="ح" data-latin="i"></div>
+      <div class="keyboard-key letter" data-key="ڤ" data-shift="ة" data-latin="v"></div>
+      <div class="keyboard-key letter" data-key="ب" data-shift="ى" data-latin="b"></div>
+      <div class="keyboard-key letter" data-key="ن" data-shift="ة" data-latin="n"></div>
+      <div class="keyboard-key letter" data-key="م" data-shift="-" data-latin="m"></div>
+      <div class="keyboard-key" data-key="،" data-shift=">">،</div>
+      <div class="keyboard-key" data-key="." data-shift=":">:<br>.</div>
+      <div class="keyboard-key" data-key="/" data-shift="؟">؟<br>/</div>
+      <div class="keyboard-key" data-key="[" data-shift="{">{<br>[</div>
+      <div class="keyboard-key" data-key="]" data-shift="}">}<br>]</div>
+      <div class="keyboard-key" data-key="." data-shift=".">.</div>
+    </div>
+    
+    <!-- Row 5: Space/Close (unchanged) -->
+    <div class="keyboard-row">
+      <div class="keyboard-key space" data-key="بۆشایی">بۆشایی</div>
+      <div class="keyboard-key toggle" id="closeKeyboard">
+        <i class="fas fa-times"></i> داخستن
+      </div>
+    </div>
+  </div>
+  
+  <div class="keyboard-state">
+    <div class="state-indicator" id="shiftIndicator">
+      <i class="fas fa-arrow-up"></i> شفت
+    </div>
+    <div class="state-indicator" id="capsIndicator">
+      <i class="fas fa-lock"></i> کەپس لاک
+    </div>
+  </div>
+  
+  <div class="keyboard-info">
+    کلیک لەسەر پیتەکانی کوردی بکە. بۆ پیتە تایبەتەکان کلیکی شفت بکە.
+  </div>
+</div>
+
+            <div class="context-menu " id="contextMenu">
+                <div class="input-section">
+                    <textarea id="queryInput" placeholder="Modify your query here..."></textarea>
+                    <p style="color: #a0a0c0; font-size: 0.9rem; text-align: center;">ئەتوانیت پێش گەڕان پرسیارەکەت دەستکاری بکەی</p>
+                </div>
+                <div class="search-options">
+                    <div class="search-option" data-engine="chatgpt">
+                        <i class="fas fa-robot chatgpt"></i>
+                        <span class="label">ChatGPT</span>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="search-option" data-engine="copilot">
+                        <i class="fas fa-robot copilot"></i>
+                        <span class="label">Copilot</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+  <!-- Toast notification -->
+  <div class="toast" id="toast"></div>
+  <script src="kurdishjs.js" type="module"></script>
+</body>
+</html>

@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nivîsgeha Kurdî (Kurmancî) - Kurdish Text Editor with Virtual Keyboard</title>
+  <meta name="description" content="Nivîsgeha nivîsê bi kurdî bi klavyeya virtual - Kurdish text editor with formatting tools and virtual keyboard">
+  <meta name="keywords" content="kurdish text editor, kurdish keyboard, online editor, kurmanji editor, kurdish writing">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="styleltr.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Top navigation bar -->
+    <div class="top-bar">
+      <div class="nav-container">
+        <div class="nav-item"><a href="donipage.html" target="_blank">
+          <i class="fa-regular fa-heart"></i>
+           şabaş</a></div>
+        <div class="nav-item dropdown">
+          <span>Girêdanên Bikêr ▾</span>
+          <div class="dropdown-content">
+            <a href="https://translate.google.com" target="_blank">Wergera Google</a>
+            <a href="https://www.bing.com/translator" target="_blank">Wergera Bing</a>
+          </div>
+        </div>
+      </div>
+<div class="logo">
+     <a href="index.html" title="rûpela sereke">
+        <div class="nav__logo" style="direction:ltr;">
+            <div>click</div>
+            Bana
+        </div>
+        </a>
+  </div>
+    </div>
+    
+    <header class="header">
+   <div id="langSelectorContainer"></div>
+    </header>
+    
+    <div class="toolbar" role="toolbar" aria-label="Editor formatting options">
+      <div class="toolbar-group">
+        <button id="bold" class="format" title="Qelew"><i class="fas fa-bold"></i></button>
+        <button id="italic" class="format" title="Kêşandî"><i class="fas fa-italic"></i></button>
+        <button id="underline" class="format" title="Binxet"><i class="fas fa-underline"></i></button>
+        <button id="strikethrough" class="format" title="Rêşkirî"><i class="fas fa-strikethrough"></i></button>
+      </div>
+      
+      <div class="toolbar-group">
+        <button id="justifyright" class="align" title="Rast"><i class="fas fa-align-right"></i></button>
+        <button id="justifycenter" class="align" title="Navend"><i class="fas fa-align-center"></i></button>
+         <button id="justifyleft" class="align" title="Çep"><i class="fas fa-align-left"></i></button>
+        <button id="justifyfull" class="align" title="Rastkirî"><i class="fas fa-align-justify"></i></button>
+      </div>
+      
+      <div class="toolbar-group">
+        <button id="insertOrderedList" title="Lîsteya hejmarî"><i class="fas fa-list-ol"></i></button>
+        <button id="insertUnorderedList" title="Lîsteya bêhejmar"><i class="fas fa-list"></i></button>
+      </div>
+      
+      <div class="toolbar-group">
+        <button id="indent" title="Binçêkirin"><i class="fas fa-indent"></i></button>
+        <button id="outdent" title="Derçêkirin"><i class="fas fa-outdent"></i></button>
+      </div>
+      
+      <div class="toolbar-group">
+        <button id="undo" title="Vegerîne"><i class="fas fa-undo"></i></button>
+        <button id="redo" title="Cardin bike"><i class="fas fa-redo"></i></button>
+      </div>
+      
+      <div class="toolbar-group">
+        <button id="createLink" title="Girêdanê zêde bike"><i class="fas fa-link"></i></button>
+        <button id="unlink" title="Girêdanê rake"><i class="fas fa-unlink"></i></button>
+      </div>
+      
+      <div class="toolbar-group">
+        <select id="formatBlock" class="adv-opi-button">
+          <option value="p">Paragraf</option>
+          <option value="h1-custom">S1</option>
+          <option value="h2-custom">S2</option>
+          <option value="h3-custom">S3</option>
+          <option value="h4-custom">S4</option>
+          <option value="h5-custom">S5</option>
+          <option value="h6-custom">S6</option>
+        </select>
+        
+        <select id="fontSize" title="Mezinahiya nivîsê">
+          <option value="1">Biçûk</option>
+          <option value="3" selected>Normal</option>
+          <option value="5">Mezin</option>
+          <option value="7">Pir Mezin</option>
+        </select>
+      </div>
+      
+      <div class="toolbar-group">
+        <div class="input-wrap" title="Rengê nivîsê">
+          <input type="color" id="foreColor">
+          <label for="foreColor">Reng</label>
+        </div>
+        
+        <div class="input-wrap" title="Rengê hilbijartinê">
+          <input type="color" id="backColor">
+          <label for="backColor">Hilbijartin</label>
+        </div>
+      </div>
+      
+      <div class="input-wrap">
+          <input type="checkbox" id="kbMappingToggle" checked>
+          <span></span>
+        <label>on/off</label>
+      </div>
+
+      <!-- New buttons for Clear and Copy -->
+      <div class="toolbar-group">
+        <button id="clearAll" title="Hemû nivîsê paqij bike">
+          <i class="fas fa-trash-alt"></i> Paqij bike
+        </button>
+        <button id="copyAll" title="Hemû nivîsê kopî bike">
+          <i class="fas fa-copy"></i> Kopî bike
+        </button>
+      </div>
+      
+      <!-- Emoji button -->
+      <div class="toolbar-group" id="emojiGroup">
+        <button id="emojiButton" title="Emoji zêde bike">
+          <i class="fas fa-smile"></i> Alt
+        </button>
+        <div class="emoji-panel" id="emojiPanel">
+          <div class="emoji-category">Emojî</div>
+          <!-- Emojis will be added here by JavaScript -->
+        </div>
+      </div>
+      
+      <!-- Search button -->
+      <div class="toolbar-group search-group">
+        <button id="searchButton" title="Li ser înternetê bigere">
+          <i class="fas fa-search"></i> Lêgerîn
+        </button>
+        <div class="search-dropdown">
+          <button class="search-option" data-engine="google">
+            <i class="fab fa-google"></i> Google
+          </button>
+          <button class="search-option" data-engine="youtube">
+            <i class="fab fa-youtube"></i> YouTube
+          </button>
+          <button class="search-option" data-engine="twitter">
+            <i class="fab fa-twitter"></i> Twitter
+          </button>
+          <button class="search-option" data-engine="facebook">
+            <i class="fab fa-facebook"></i> Facebook
+          </button>
+        </div>
+      </div>
+      
+      <div class="toolbar-group sendto-group ">
+        <button id="sendToButton" title="Bişîne">
+          <i class="fas fa-paper-plane"></i> Bişîne
+        </button>
+        <div class="sendto-dropdown">
+          <button class="sendto-option" data-action="print">
+            <i class="fas fa-print"></i> Çap bike
+          </button>
+          <button class="sendto-option" data-action="download-txt">
+            <i class="fas fa-file-alt"></i> Dakêşîne wekî TXT
+          </button>
+        </div>
+      </div>
+
+      <div class="toolbar-group">
+        <div class="dark-mode-toggle" id="darkModeToggle">
+          <i class="fas fa-moon"></i>
+          <div class="toggle-switch"></div>
+          <span class="dark-mode-text">Tarî</span>
+        </div>
+      </div>
+      
+      <div class="toolbar-group">
+        <button id="toggleKeyboard" title="Klavyeya Kurdî">
+          <i class="fas fa-keyboard"></i> Kurdî
+        </button>
+      </div>
+    </div>
+    
+    <div class="editor-container">
+      <div id="text-input" contenteditable="true" dir="ltr" lang="kmr" role="textbox" aria-label="Text editor area"></div>
+    </div>
+    
+    <div class="status-bar">
+      <div class="editor-info">Nivîsgeha Kurdî</div>
+      <div class="word-count">
+        <span id="wordCount">Peyv: 0</span>
+        <span id="charCount">Tîp: 0</span>
+      </div>
+    </div>
+    
+    <div class="keyboard-container" id="kurdishKeyboard">
+      <div class="shift-indicator">Shift Çalak e</div>
+      
+      <div class="keyboard-rows-container">
+        <div class="keyboard-row">
+          <div class="keyboard-key" data-key="`" data-shift="~">~<br>`</div>
+          <div class="keyboard-key" data-key="1" data-shift="!">!<br>1</div>
+          <div class="keyboard-key" data-key="2" data-shift="@">@<br>2</div>
+          <div class="keyboard-key" data-key="3" data-shift="#">#<br>3</div>
+          <div class="keyboard-key" data-key="4" data-shift="$">$<br>4</div>
+          <div class="keyboard-key" data-key="5" data-shift="%">%<br>5</div>
+          <div class="keyboard-key" data-key="6" data-shift="^">^<br>6</div>
+          <div class="keyboard-key" data-key="7" data-shift="&">&<br>7</div>
+          <div class="keyboard-key" data-key="8" data-shift="*">*<br>8</div>
+          <div class="keyboard-key" data-key="9" data-shift="(">(<br>9</div>
+          <div class="keyboard-key" data-key="0" data-shift=")">)<br>0</div>
+          <div class="keyboard-key" data-key="-" data-shift="_">_<br>-</div>
+          <div class="keyboard-key" data-key="=" data-shift="+">+<br>=</div>
+          <div class="keyboard-key backspace" id="backspaceKey">
+            <i class="fas fa-backspace"></i>
+          </div>
+        </div>
+        
+        <div class="keyboard-row">
+          <div class="keyboard-key shift" id="shiftKey">Shift</div>
+          <div class="keyboard-key caps" id="capsLockKey">Caps</div>
+          <div class="keyboard-key letter" data-key="q" data-shift="Q">q</div>
+          <div class="keyboard-key letter" data-key="w" data-shift="W">w</div>
+          <div class="keyboard-key letter" data-key="e" data-shift="E">e</div>
+          <div class="keyboard-key letter" data-key="r" data-shift="R">r</div>
+          <div class="keyboard-key letter" data-key="t" data-shift="T">t</div>
+          <div class="keyboard-key letter" data-key="y" data-shift="Y">y</div>
+          <div class="keyboard-key letter" data-key="u" data-shift="U">u</div>
+          <div class="keyboard-key letter" data-key="î" data-shift="Î">î</div>
+          <div class="keyboard-key letter" data-key="o" data-shift="O">o</div>
+          <div class="keyboard-key letter" data-key="p" data-shift="P">p</div>
+          <div class="keyboard-key" data-key="\" data-shift="|">\|</div>
+        </div>
+        
+        <div class="keyboard-row">
+          <div class="keyboard-key letter" data-key="a" data-shift="A">a</div>
+          <div class="keyboard-key letter" data-key="s" data-shift="S">s</div>
+          <div class="keyboard-key letter" data-key="d" data-shift="D">d</div>
+          <div class="keyboard-key letter" data-key="f" data-shift="F">f</div>
+          <div class="keyboard-key letter" data-key="g" data-shift="G">g</div>
+          <div class="keyboard-key letter" data-key="h" data-shift="H">h</div>
+          <div class="keyboard-key letter" data-key="j" data-shift="J">j</div>
+          <div class="keyboard-key letter" data-key="k" data-shift="K">k</div>
+          <div class="keyboard-key letter" data-key="l" data-shift="L">l</div>
+          <div class="keyboard-key letter" data-key="ş" data-shift="Ş">ş</div>
+          <div class="keyboard-key" data-key="'" data-shift='"'>'"</div>
+          <div class="keyboard-key enter" id="enterKey">Enter</div>
+        </div>
+        
+        <div class="keyboard-row">
+          <div class="keyboard-key letter" data-key="z" data-shift="Z">z</div>
+          <div class="keyboard-key letter" data-key="x" data-shift="X">x</div>
+          <div class="keyboard-key letter" data-key="ç" data-shift="Ç">ç</div>
+          <div class="keyboard-key letter" data-key="v" data-shift="V">v</div>
+          <div class="keyboard-key letter" data-key="b" data-shift="B">b</div>
+          <div class="keyboard-key letter" data-key="n" data-shift="N">n</div>
+          <div class="keyboard-key letter" data-key="m" data-shift="M">m</div>
+          <div class="keyboard-key letter" data-key="ê" data-shift="Ê">ê</div>
+          <div class="keyboard-key letter" data-key="û" data-shift="Û">û</div>
+          <div class="keyboard-key" data-key=",">,</div>
+          <div class="keyboard-key" data-key="." data-shift=":">:<br>.</div>
+          <div class="keyboard-key" data-key="/" data-shift="?">?<br>/</div>
+          <div class="keyboard-key" data-key="[" data-shift="{">{<br>[</div>
+          <div class="keyboard-key" data-key="]" data-shift="}">}<br>]</div>
+        </div>
+        
+        <div class="keyboard-row">
+          <div class="keyboard-key" data-key="<" data-shift="<"><</div>
+          <div class="keyboard-key" data-key=">" data-shift=">">></div>
+          <div class="keyboard-key space" data-key=" ">Valahî</div>
+          <div class="keyboard-key toggle" id="closeKeyboard">
+            <i class="fas fa-times"></i> Bigire
+          </div>
+        </div>
+      </div>
+      
+      <div class="keyboard-state">
+        <div class="state-indicator" id="shiftIndicator">
+          <i class="fas fa-arrow-up"></i> Shift
+        </div>
+        <div class="state-indicator" id="capsIndicator">
+          <i class="fas fa-lock"></i> Caps Lock
+        </div>
+      </div>
+      
+      <div class="keyboard-info">
+        Ji bo tîpên kurdî bikirtînin. Ji bo tîpên taybet bişkoka 'Shift'ê bikar bînin.
+      </div>
+    </div>
+    <div class="context-menu" id="contextMenu">
+                <div class="input-section">
+                    <textarea id="queryInput" placeholder="Modify your query here..."></textarea>
+                    <p style="color: #a0a0c0; font-size: 0.9rem; text-align: center;">You can edit your question before searching.</p>
+                </div>
+                <div class="search-options">
+                    <div class="search-option" data-engine="chatgpt">
+                        <i class="fas fa-robot chatgpt"></i>
+                        <span class="label">ChatGPT</span>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="search-option" data-engine="copilot">
+                        <i class="fas fa-robot copilot"></i>
+                        <span class="label">Copilot</span>
+                    </div>
+                </div>
+            </div>
+  </div>
+  
+  <!-- Toast notification -->
+  <div class="toast" id="toast"></div>
+  <script src="kurdishkujs.js" type="module"></script>
+</body>
+</html>
