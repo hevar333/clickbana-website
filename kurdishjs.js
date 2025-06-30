@@ -1,7 +1,7 @@
-import { setupKurdishKeyboardMapping } from '/clickbana-website/kurdishKeyboardMapping.js';
-import { emojiCategories, populateEmojiPanel } from '/clickbana-website/emoji-data.js';
-import { LanguageSelector } from '/clickbana-website/language-selector.js';
-import initContextMenuSearch from '/clickbana-website/contextMenuSearch.js';
+import { setupKurdishKeyboardMapping } from 'kurdishKeyboardMapping.js';
+import { emojiCategories, populateEmojiPanel } from 'emoji-data.js';
+import { LanguageSelector } from 'language-selector.js';
+import initContextMenuSearch from 'contextMenuSearch.js';
 
   const editor = document.getElementById('text-input');
   const wordCountEl = document.getElementById('wordCount');
