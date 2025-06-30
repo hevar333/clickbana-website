@@ -43,13 +43,13 @@ const LanguageSelector = (() => {
     const path = window.location.pathname.toLowerCase();
 
     if (path.includes('./english1.html')) {
-      currentLangSpan.textContent = 'English';
+      currentLangSpan.textContent = 'english';
     } else if (path.includes('./sorani1.html')) {
-      currentLangSpan.textContent = 'Kurdish (Sorani)';
+      currentLangSpan.textContent = 'kurdish (Sorani)';
     } else if (path.includes('./kurdishku.html')) {
-      currentLangSpan.textContent = 'Kurdish (Kurmanji)';
+      currentLangSpan.textContent = 'kurdish (Kurmanji)';
     } else if (path.includes('./arabic1.html')) {
-      currentLangSpan.textContent = 'Arabic';
+      currentLangSpan.textContent = 'arabic';
     } else {
       currentLangSpan.textContent = 'Select Language';
     }
