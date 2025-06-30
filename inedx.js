@@ -62,10 +62,10 @@
             function setCurrentLanguage() {
                 const path = window.location.pathname.toLowerCase();
                 const languageMap = {
-                    '/english1.html': 'English',
-                    '/sorani1.html': 'Kurdish (Sorani)',
-                    '/kurdishku.html': 'Kurdish (Kurmanji)',
-                    '/arabic1.html': 'Arabic'
+                    './english1.html': 'English',
+                    './sorani1.html': 'Kurdish (Sorani)',
+                    './kurdishku.html': 'Kurdish (Kurmanji)',
+                    './arabic1.html': 'Arabic'
                 };
 
                 for (const [pathPart, language] of Object.entries(languageMap)) {
@@ -129,10 +129,10 @@
 
             function navigateToLanguage(language) {
                 const languagePaths = {
-                    'english': '/english1.html',
-                    'sorani': '/sorani1.html',
-                    'kurmanji': 'kurdishku.html',
-                    'arabic': '/arabic1.html'
+                    'english': './english1.html',
+                    'sorani': './sorani1.html',
+                    'kurmanji': './kurdishku.html',
+                    'arabic': './arabic1.html'
                 };
             
                 if (languagePaths[language]) {
