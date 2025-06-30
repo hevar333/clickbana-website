@@ -1,5 +1,4 @@
-
-        // Language translations
+// Language translations
         const translations = {
             en: {
                 currentLang: "English",
@@ -13,13 +12,13 @@
                 patreonDescription: "Become a patron and support us with monthly contributions.",
                 patreonButton: "Support on Patreon",
                 coffeeTitle: "Buy Me a Coffee",
-                coffeeDescription: "One-time donations to show your appreciation. Buy us a coffee!",
+                coffeeDescription: "One-time donations to show your appreciation.",
                 coffeeButton: "Buy Me a Coffee",
                 whyDonate: "Why Donate?",
                 reason1: "Help cover server costs and infrastructure",
                 reason2: "Support ongoing development and new features",
                 reason3: "Enable us to add more language keyboards",
-                reason4: "Keep KeyBoard free and accessible to everyone",
+                reason4: "Keep ClickBana free and accessible to everyone",
                 reason5: "Support open-source development",
                 darkModeText: "Dark Mode",
                 lightModeText: "Light Mode"
@@ -36,39 +35,41 @@
                 patreonDescription: "كن راعيًا وادعمنا بمساهمات شهرية.",
                 patreonButton: "ادعمنا على Patreon",
                 coffeeTitle: "اشتري لي قهوة",
-                coffeeDescription: "تبرعات لمرة واحدة لإظهار تقديرك. اشتر لنا قهوة!",
+                coffeeDescription: "تبرعات لمرة واحدة لإظهار تقديرك.",
                 coffeeButton: "اشتري لي قهوة",
                 whyDonate: "لماذا تتبرع؟",
                 reason1: "المساعدة في تغطية تكاليف الخوادم والبنية التحتية",
                 reason2: "دعم التطوير المستمر والميزات الجديدة",
                 reason3: "تمكيننا من إضافة المزيد من لوحات المفاتيح اللغوية",
-                reason4: "الحفاظ على KeyBoard مجانيًا ومتاحًا للجميع",
+                reason4: "الحفاظ على ClickBana مجانيًا ومتاحًا للجميع",
                 reason5: "دعم التطوير مفتوح المصدر",
                 darkModeText: "الوضع المظلم",
                 lightModeText: "الوضع الفاتح"
-            }, ckb: {
-    currentLang: "کوردی",
-    homeLabel: "پەڕەی سەرەکی",
-    homeLink: "کرتە بکە",
-    contactLabel: "پەیوەندی بکە",
-    contactLink: "پەیوەندی",
-    supportTitle: "پشتیوانی لە پەرەپێدانی ClickBana بکە",
-    supportDescription: "بەخشینەکەت یارمەتیمان دەدات بە پاراستن و باشترکردنی ClickBana، بەبێ بەرامبەر و بەردەست بهێڵینەوە بۆ هەموو خەڵک لە سەرانسەری جیهان. ڕێگای بەخشینی پەسەندت هەڵبژێرە:",
-    patreonTitle: "پاتریۆن",
-    patreonDescription: "ببە بە پشتیوانی ماوەیی و لە ڕێگەی بەخشینی مانگانەوە پشتمان بکە.",
-    patreonButton: "لە پاتریۆن پشتیوانیم بکە",
-    coffeeTitle: "کوپێک قاوەم بۆ بكڕە",
-    coffeeDescription: "بەخشینەکی یەکجارە بۆ پیشاندانی پەسندکردنت. کوپێک قاوەمان بۆ بكڕە!",
-    coffeeButton: "کوپێک قاوەم بۆ بكڕە",
-    whyDonate: "بۆچی ببەخشم؟",
-    reason1: "یارمەتی دابینکردنی تێچووی سێرڤەر و دەستگا",
-    reason2: "پشتیوانی لە پەرەپێدانی بەردەوام و تایبەتمەندییە نوێیەکان",
-    reason3: "ڕێگامان پێبدە کلیلەپانی زیاتر بۆ زمانەکان زیاد بکەین",
-    reason4: "کلیلەپانە بەبێ بەرامبەر و بەردەست بمێنێتەوە بۆ هەمووان",
-    reason5: "پشتیوانی لە پەرەپێدانی سەرچاوە کراوە بکە",
-    darkModeText: "دۆخی تاریک",
-    lightModeText: "دۆخی ڕووناک"
-},  ku: {
+            },
+            ckb: {
+                currentLang: "کوردی",
+                homeLabel: "پەڕەی سەرەکی",
+                homeLink: "کرتە بکە",
+                contactLabel: "پەیوەندی بکە",
+                contactLink: "پەیوەندی",
+                supportTitle: "پشتیوانی لە پەرەپێدانی ClickBana بکە",
+                supportDescription: "بەخشینەکەت یارمەتیمان دەدات بە پاراستن و باشترکردنی ClickBana، بەبێ بەرامبەر و بەردەست بهێڵینەوە بۆ هەموو خەڵک لە سەرانسەری جیهان. ڕێگای بەخشینی پەسەندت هەڵبژێرە:",
+                patreonTitle: "پاتریۆن",
+                patreonDescription: "ببە بە پشتیوانی ماوەیی و لە ڕێگەی بەخشینی مانگانەوە پشتمان بکە.",
+                patreonButton: "لە پاتریۆن پشتیوانیم بکە",
+                coffeeTitle: "کوپێک قاوەم بۆ بكڕە",
+                coffeeDescription: "بەخشینەکی یەکجارە بۆ پیشاندانی پەسندکردنت.",
+                coffeeButton: "کوپێک قاوەم بۆ بكڕە",
+                whyDonate: "بۆچی ببەخشم؟",
+                reason1: "یارمەتی دابینکردنی تێچووی سێرڤەر و دەستگا",
+                reason2: "پشتیوانی لە پەرەپێدانی بەردەوام و تایبەتمەندییە نوێیەکان",
+                reason3: "ڕێگامان پێبدە کلیلەپانی زیاتر بۆ زمانەکان زیاد بکەین",
+                reason4: "کلیلەپانە بەبێ بەرامبەر و بەردەست بمێنێتەوە بۆ هەمووان",
+                reason5: "پشتیوانی لە پەرەپێدانی سەرچاوە کراوە بکە",
+                darkModeText: "دۆخی تاریک",
+                lightModeText: "دۆخی ڕووناک"
+            },
+            ku: {
                 currentLang: "Kurdî",
                 homeLabel: "Malper",
                 homeLink: "bikirtînin",
@@ -80,17 +81,17 @@
                 patreonDescription: "Bibe patron û bi taybetmendiyên mehane piştgiriya me bike.",
                 patreonButton: "Li ser Patreon piştgirî bide",
                 coffeeTitle: "Ji min re qehweyekê bikirin",
-                coffeeDescription: "Dana yekcar ji bo nîşandana aprezîya xwe. Ji me re qehweyekê bikirin!",
+                coffeeDescription: "Dana yekcar ji bo nîşandana aprezîya xwe.",
                 coffeeButton: "Ji min re qehweyekê bikirin",
                 whyDonate: "Çima bedana?",
                 reason1: "Alîkariya lêçûnên server û avahiyê",
                 reason2: "Piştgiriya pêşveçûna berdewam û taybetmendiyên nû",
                 reason3: "Ji me re destûr bide ku em klavyeyên zimanên zêdetir lê zêde bikin",
-                reason4: "KeyBoard ji bo her kesî belaş û berdest bihêle",
+                reason4: "ClickBana ji bo her kesî belaş û berdest bihêle",
                 reason5: "Piştgiriya pêşvebirina çavkaniya vekirî",
                 darkModeText: "Moda Tarî",
                 lightModeText: "Moda Ronî"
-            },
+            }
         };
 
         // Dark Mode Toggle
@@ -98,14 +99,15 @@
         const darkModeText = document.getElementById('dark-mode-text');
         const darkModeIcon = darkModeToggle.querySelector('i');
         
-        // Check for saved dark mode preference
-        if (localStorage.getItem('darkMode') === 'enabled') {
-            document.body.classList.add('dark-theme');
-            darkModeIcon.classList.remove('fa-moon');
-            darkModeIcon.classList.add('fa-sun');
-            darkModeText.textContent = translations[getCurrentLanguage()].lightModeText;
+        // Initialize dark mode
+        function initializeDarkMode() {
+            if (localStorage.getItem('darkMode') === 'enabled') {
+                document.body.classList.add('dark-theme');
+                darkModeIcon.classList.remove('fa-moon');
+                darkModeIcon.classList.add('fa-sun');
+            }
         }
-
+        
         // Toggle dark mode
         darkModeToggle.addEventListener('click', () => {
             document.body.classList.toggle('dark-theme');
@@ -130,14 +132,15 @@
         const languageOptions = document.querySelectorAll('.language-option');
         const currentLangElement = document.getElementById('current-lang');
         
-        // Get current language from localStorage or default to English
+        // Get current language
         function getCurrentLanguage() {
-            return localStorage.getItem('userLanguage');
+            return localStorage.getItem('userLanguage') || 'en';
         }
         
         // Apply translations to the page
         function applyTranslations(lang) {
             const langData = translations[lang];
+            if (!langData) return;
             
             // Update all text elements
             document.getElementById('home-label').textContent = langData.homeLabel;
@@ -160,15 +163,15 @@
             document.getElementById('reason5').textContent = langData.reason5;
             currentLangElement.textContent = langData.currentLang;
             
-            // Update dark mode text based on current mode
+            // Update dark mode text
             if (document.body.classList.contains('dark-theme')) {
                 darkModeText.textContent = langData.lightModeText;
             } else {
                 darkModeText.textContent = langData.darkModeText;
             }
             
-            // Set RTL for Arabic and Kurdish
-            if (lang === 'ar' || lang === 'ckb') {
+            // Set RTL for Arabic and Kurdish languages
+            if (lang === 'ar' || lang === 'ku' || lang === 'ckb') {
                 document.body.classList.add('rtl');
             } else {
                 document.body.classList.remove('rtl');
@@ -179,7 +182,8 @@
         }
         
         // Toggle dropdown
-        languageSelector.addEventListener('click', () => {
+        languageSelector.addEventListener('click', (e) => {
+            e.stopPropagation();
             languageDropdown.classList.toggle('active');
         });
         
@@ -193,18 +197,16 @@
         // Handle language selection
         languageOptions.forEach(option => {
             option.addEventListener('click', () => {
-                // Remove active class from all options
                 languageOptions.forEach(opt => opt.classList.remove('active'));
-                // Add active class to clicked option
                 option.classList.add('active');
-                
                 const lang = option.getAttribute('data-lang');
                 applyTranslations(lang);
             });
         });
         
-        // Initialize page with saved language
+        // Initialize page
         document.addEventListener('DOMContentLoaded', () => {
+            initializeDarkMode();
             const savedLang = getCurrentLanguage();
             applyTranslations(savedLang);
             
@@ -213,5 +215,13 @@
             if (activeOption) {
                 languageOptions.forEach(opt => opt.classList.remove('active'));
                 activeOption.classList.add('active');
+            }
+            
+            // Initialize dark mode text
+            const currentLang = getCurrentLanguage();
+            if (document.body.classList.contains('dark-theme')) {
+                darkModeText.textContent = translations[currentLang].lightModeText;
+            } else {
+                darkModeText.textContent = translations[currentLang].darkModeText;
             }
         });
