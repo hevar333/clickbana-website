@@ -31,6 +31,9 @@ import initContextMenuSearch from './contextMenuSearch.js';
     const shiftIndicator = document.getElementById('shiftIndicator');
     const capsIndicator = document.getElementById('capsIndicator');
 
+ ezstandalone.cmd.push(function () {
+        ezstandalone.showAds(101);
+    });
     // Keyboard states
     let isShifted = false;
     let isCapsLock = false;
