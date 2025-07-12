@@ -1,2 +1,4 @@
 Redirect 301 /ads.txt https://srv.adstxtmanager.com/76391/clickbana.site
 https://srv.adstxtmanager.com/76391/clickbana.site
+google.com, pub-9256923675507922, DIRECT, f08c47fec0942fa0
+
