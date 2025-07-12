@@ -1,4 +1,18 @@
 RewriteEngine On
+
+# Rewrite /sorani to /sorani1.html
+RewriteRule ^sorani/?$ sorani1.html [L]
+
+# Rewrite /arabic to /arabic1.html
+RewriteRule ^arabic/?$ arabic1.html [L]
+
+# Rewrite /english to /english1.html
+RewriteRule ^english/?$ english1.html [L]
+
+# Rewrite /kurdishkurmanji to /kurdishku.html
+RewriteRule ^kurdishkurmanji/?$ kurdishku.html [L]
+
+# Existing rules (keep your other rewrites below this)
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^([^/]+)/$ $1.html
 RewriteRule ^([^/]+)/([^/]+)/$ /$1/$2.html
